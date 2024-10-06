@@ -156,15 +156,15 @@ const UserForm = () => {
             <th className="py-2 px-4 border-b">Actions</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody >
           {users.map(user => (
             <tr key={user.id}>
-              <td className="py-2 px-4 border-b">{user.first_name}</td>
-              <td className="py-2 px-4 border-b">{user.last_name}</td>
-              <td className="py-2 px-4 border-b">{user.phone}</td>
-              <td className="py-2 px-4 border-b">{user.email}</td>
-              <td className="py-2 px-4 border-b">{user.address}</td>
-              <td className="py-2 px-4 border-b">
+              <td className="py-2 px-10 border-b">{user.first_name}</td>
+              <td className="py-2 px-10 border-b">{user.last_name}</td>
+              <td className="py-2 px-10 border-b">{user.phone}</td>
+              <td className="py-2 px-10 border-b">{user.email}</td>
+              <td className="py-2 px-10 border-b">{user.address}</td>
+              <td className="py-2 px-10 border-b">
                 <button
                   className="bg-yellow-500 text-white px-4 py-1 rounded mr-2 hover:bg-yellow-600"
                   onClick={() => editUser(user)}
