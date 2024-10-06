@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import './App.css'
 import UserForm from './UserForm'
+import ExcelLikeTable from './ExcelLikeTable'
 
 function App() {
 
@@ -9,6 +10,7 @@ function App() {
   return (
     <>
      <UserForm/>
+     {/* <ExcelLikeTable/> */}
     </>
   )
 }
