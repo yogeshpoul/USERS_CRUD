@@ -21,10 +21,11 @@ app.post('/users', [
     }
 
     const { firstName, lastName, phone, email, address } = req.body;
+    const lowerCaseEmail = email.toLowerCase();
     try {
         const result = await pool.query(
             'INSERT INTO users (first_name, last_name, phone, email, address) VALUES ($1, $2, $3, $4, $5) RETURNING *',
-            [firstName, lastName, phone, email, address]
+            [firstName, lastName, phone, lowerCaseEmail, address]
         );
         res.json(result.rows[0]);
     } catch (err) {
@@ -69,9 +70,10 @@ app.put('/users/:id', [
     const { id } = req.params;
     const { firstName, lastName, phone, email, address } = req.body;
     try {
+        const lowerCaseEmail = email.toLowerCase();
         const result = await pool.query(
             'UPDATE users SET first_name = $1, last_name = $2, phone = $3, email = $4, address = $5 WHERE id = $6 RETURNING *',
-            [firstName, lastName, phone, email, address, id]
+            [firstName, lastName, phone, lowerCaseEmail, address, id]
         );
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'User not found' });
