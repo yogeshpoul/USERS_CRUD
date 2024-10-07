@@ -88,7 +88,7 @@ const UserForm = () => {
       setUsers([...users, res.data]);
       resetForm();
     } catch (err) {
-      console.error(err);
+      alert(err.response.data.error)
     }
   };
 
